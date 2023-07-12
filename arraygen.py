@@ -1,4 +1,4 @@
-# randomArrayGen.py
+# arraygen.py
 
 from Crypto.Random import random
 
