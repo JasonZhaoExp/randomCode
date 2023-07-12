@@ -1,3 +1,5 @@
+# randomArrayGen.py
+
 from Crypto.Random import random
 
 def generate_random_array(size=1024, min_num=0, max_num=1024):

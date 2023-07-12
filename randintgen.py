@@ -1,3 +1,5 @@
+# randintgen.py
+
 from Crypto.Random import random
 import sys
 
