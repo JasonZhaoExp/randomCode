@@ -1,4 +1,7 @@
-def iterative_bubblesort(array):
+def name():
+    return "Optimised iterative bubble sort"
+
+def sort(array):
     n = len(array)
     for i in range(n):
         swapped = False

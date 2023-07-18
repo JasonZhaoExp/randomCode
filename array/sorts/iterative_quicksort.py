@@ -1,4 +1,7 @@
-def iterative_quicksort(array):
+def name():
+    return "Iterative quick sort"
+
+def sort(array):
     stack = [(0, len(array) - 1)]
     while stack:
         low, high = stack.pop()

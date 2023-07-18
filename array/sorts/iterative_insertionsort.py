@@ -1,9 +1,12 @@
-def iterative_insertionsort(arr):
-    for i in range(1, len(arr)):
-        key = arr[i]
+def name():
+    return "Iterative insertion sort"
+
+def sort(array):
+    for i in range(1, len(array)):
+        key = array[i]
         j = i - 1
-        while j >= 0 and key < arr[j]:
-            arr[j + 1] = arr[j]
+        while j >= 0 and key < array[j]:
+            array[j + 1] = array[j]
             j -= 1
-        arr[j + 1] = key
-    return arr
+        array[j + 1] = key
+    return array

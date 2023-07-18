@@ -1,26 +1,29 @@
-def iterative_mergesort(arr):
-    current_size = 1
-    while current_size < len(arr) - 1:
-        left = 0
-        while left < len(arr) - 1:
-            mid = min((left + current_size - 1), (len(arr) - 1))
-            right = ((2 * current_size + left - 1,
-                      len(arr) - 1)[2 * current_size + left - 1 > len(arr) - 1])
-            arr[left:right + 1] = merge(arr[left:mid + 1], arr[mid + 1:right + 1])
-            left = left + current_size * 2
-        current_size = 2 * current_size
-    return arr
+def name():
+    return "Iterative merge sort"
 
-def merge(left, right):
-    result = []
-    i, j = 0, 0
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            result.append(left[i])
-            i += 1
-        else:
-            result.append(right[j])
-            j += 1
-    result.extend(left[i:])
-    result.extend(right[j:])
-    return result
+def sort(arr):
+    if len(arr) <= 1:
+        return arr
+    def merge(left, right):
+        merged = []
+        left_idx, right_idx = 0, 0
+
+        while left_idx < len(left) and right_idx < len(right):
+            if left[left_idx] < right[right_idx]:
+                merged.append(left[left_idx])
+                left_idx += 1
+            else:
+                merged.append(right[right_idx])
+                right_idx += 1
+        merged.extend(left[left_idx:])
+        merged.extend(right[right_idx:])
+        return merged
+    sorted_arrays = [[num] for num in arr]
+    while len(sorted_arrays) > 1:
+        new_sorted_arrays = []
+        for i in range(0, len(sorted_arrays), 2):
+            left = sorted_arrays[i]
+            right = sorted_arrays[i + 1] if i + 1 < len(sorted_arrays) else []
+            new_sorted_arrays.append(merge(left, right))
+        sorted_arrays = new_sorted_arrays
+    return sorted_arrays[0]

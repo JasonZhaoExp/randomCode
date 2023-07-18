@@ -1,11 +1,14 @@
-def recursive_mergesort(array):
+def name():
+    return "Recursive merge sort"
+
+def sort(array):
     if len(array) <= 1:
         return array
     mid = len(array) // 2
     left_half = array[:mid]
     right_half = array[mid:]
-    left_half = recursive_mergesort(left_half)
-    right_half = recursive_mergesort(right_half)
+    left_half = sort(left_half)
+    right_half = sort(right_half)
     result = []
     i, j = 0, 0
     while i < len(left_half) and j < len(right_half):

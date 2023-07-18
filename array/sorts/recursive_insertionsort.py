@@ -1,11 +1,13 @@
-def recursive_insertionsort(array):
-    n = len(array)
-    if n <= 1:
-        return
-    recursive_insertionsort(array, n - 1)
-    key = array[n - 1]
-    j = n - 2
-    while j >= 0 and key < array[j]:
-        array[j + 1] = array[j]
-        j -= 1
-    array[j + 1] = key
+def name():
+    return "Recursive insertion sort"
+
+def sort(array):
+    if len(array) <= 1:
+        return array
+    first_element = array[0]
+    rest_of_array = array[1:]
+    sorted_rest = sort(rest_of_array)
+    for i in range(len(sorted_rest)):
+        if first_element < sorted_rest[i]:
+            return sorted_rest[:i] + [first_element] + sorted_rest[i:]
+    return sorted_rest + [first_element]
